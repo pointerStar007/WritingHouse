@@ -50,16 +50,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# 挂载静态文件
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 # 注册异常处理器
 app.add_exception_handler(WritingHouseException, writing_house_exception_handler)
 app.add_exception_handler(StarletteHTTPException, http_exception_handler)
 app.add_exception_handler(RequestValidationError, validation_exception_handler)
 app.add_exception_handler(Exception, general_exception_handler)
 
-# 挂载静态文件
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-# 注册 API 路由
+# 包含 API 路由
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
 
@@ -77,10 +77,7 @@ async def root():
 @app.get("/health")
 async def health_check():
     """健康检查"""
-    return {
-        "status": "healthy",
-        "version": settings.VERSION
-    }
+    return {"status": "healthy"}
 
 
 if __name__ == "__main__":

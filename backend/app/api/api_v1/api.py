@@ -30,29 +30,25 @@ api_router.include_router(upload.router, prefix="/upload", tags=["文件上传"]
 
 
 @api_router.get("/")
-async def api_info():
-    """API信息"""
+def root():
+    """
+    API根路径
+    """
     return {
-        "message": "WritingHouse API v1",
-        "version": "2.0.0",
-        "endpoints": {
-            "auth": "/auth",
-            "users": "/users",
-            "works": "/works",
-            "volumes": "/volumes",
-            "chapters": "/chapters",
-            "statistics": "/statistics",
-            "user_profile": "/user-profile",
-            "upload": "/upload"
-        }
+        "message": "Writing House API",
+        "version": "1.0.0",
+        "docs_url": "/docs",
+        "redoc_url": "/redoc"
     }
 
 
 @api_router.get("/health")
-async def health_check():
-    """健康检查"""
+def health_check():
+    """
+    健康检查接口
+    """
     return {
         "status": "healthy",
-        "service": "WritingHouse API",
-        "version": "2.0.0"
+        "service": "Writing House API",
+        "version": "1.0.0"
     }
