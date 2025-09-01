@@ -1,10 +1,12 @@
 # Dependencies
 node_modules/
+*/node_modules/
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Distribution / packaging
+*.so
 .Python
 build/
 develop-eggs/
@@ -18,58 +20,131 @@ parts/
 sdist/
 var/
 wheels/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-PYTHONPATH
+PIPFILE.lock
 
-# PyInstaller
-*.manifest
-*.spec
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.env/
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# Database
+*.db
+*.sqlite
+*.sqlite3
+writing_house.db
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
+# Logs
+logs/
 *.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Flask stuff:
-instance/
-.webassets-cache
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Scrapy stuff:
-.scrapy
+# Coverage directory used by tools like istanbul
+coverage/
 
-# Sphinx documentation
-docs/_build/
+# nyc test coverage
+.nyc_output
 
-# PyBuilder
-.pybuilder/
-target/
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PyCharm
+.idea/
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -83,12 +158,6 @@ ipython_config.py
 
 # pipenv
 Pipfile.lock
-
-# poetry
-poetry.lock
-
-# pdm
-.pdm.toml
 
 # PEP 582
 __pypackages__/
@@ -133,155 +202,39 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# PyCharm
-.idea/
+# 项目特定忽略
+_internal/
+*.exe
+*.spec
+WritingHouse.exe
+WritingHouseLite.spec
+launcher_*.py
+api_test.js
+test_*.js
+test_*.md
+test_*.bat
+*.png
+*.svg
+image/
+static/
+uploads/
 
-# VS Code
-.vscode/
+# 启动脚本
+start.bat
+start.ps1
+stop.bat
+stop.ps1
+start_gui.bat
+build_*.bat
 
-# Frontend
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# 数据库文件
+*.sql
+database/*.sql
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage
-*.lcov
-
-# nyc test coverage
-.nyc_output
-
-# Grunt intermediate storage
-.grunt
-
-# Bower dependency directory
-bower_components
-
-# node-waf configuration
-.lock-wscript
-
-# Compiled binary addons
-build/Release
-
-# Dependency directories
-jspm_packages/
-
-# Snowpack dependency directory
-web_modules/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Optional stylelint cache
-.stylelintcache
-
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# parcel-bundler cache
-.parcel-cache
-
-# Next.js build output
-.next
-out
-
-# Nuxt.js build / generate output
-.nuxt
-
-# Gatsby files
-.cache/
-public
-
-# Vuepress build output
-.vuepress/dist
-
-# Vite build output
-dist
-dist-ssr
-*.local
-
-# Rollup build output
-build
-
-# Serverless directories
-.serverless/
-
-# FuseBox cache
-.fusebox/
-
-# DynamoDB Local files
-.dynamodb/
-
-# TernJS port file
-.tern-port
-
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
-
-# yarn v2
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
-.yarn/install-state.gz
-.pnp.*
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-database/
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Temporary files
-*.tmp
-*.temp
-
-# Editor backup files
-*~
-*.swp
-*.swo
-
-# Local configuration
-config.local.js
-config.local.json
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# 临时文件
+temp_*
+check_*
+create_*
+fix_*
+insert_*
+recreate_*
