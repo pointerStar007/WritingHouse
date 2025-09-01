@@ -48,7 +48,6 @@ def health_check():
     健康检查接口
     """
     return {
-        "status": "healthy",
-        "service": "Writing House API",
-        "version": "1.0.0"
+        "status": "ok",
+        "message": "API is running"
     }

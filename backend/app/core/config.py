@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     
     # 项目基本信息
     PROJECT_NAME: str = "WritingHouse"
-    VERSION: str = "2.0.0"
+    VERSION: str = "1.0.0"
     API_V1_STR: str = "/api/v1"
     
     # 数据库配置
@@ -48,21 +48,22 @@ class Settings(BaseSettings):
     UPLOAD_DIR: str = "uploads"
     STATIC_DIR: str = "static"
     
-    # 数据库URL
+    # 分页配置
+    DEFAULT_PAGE_SIZE: int = 20
+    MAX_PAGE_SIZE: int = 100
+    
+    # 写作统计配置
+    WORDS_PER_MINUTE: int = 50  # 平均每分钟字数
+    
     @property
     def DATABASE_URL(self) -> str:
+        """构建数据库连接URL"""
         return f"mysql+pymysql://{self.MYSQL_USER}:{self.MYSQL_PASSWORD}@{self.MYSQL_SERVER}:{self.MYSQL_PORT}/{self.MYSQL_DB}?charset=utf8mb4"
-    
-    # SQLite数据库URL（开发环境）
-    SQLITE_URL: str = "sqlite:///./writing_house.db"
-    
-    # 环境变量
-    ENVIRONMENT: str = "development"
     
     class Config:
         env_file = ".env"
         case_sensitive = True
 
 
-# 创建配置实例
+# 创建全局配置实例
 settings = Settings()
