@@ -6,7 +6,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export defineConfig({
   plugins: [
     vue(),
     AutoImport({
@@ -47,21 +47,16 @@ export default defineConfig({
         manualChunks: {
           vendor: ['vue', 'vue-router', 'pinia'],
           element: ['element-plus'],
-          editor: ['monaco-editor', '@monaco-editor/loader'],
-          utils: ['axios', 'dayjs', 'js-cookie']
+          editor: ['monaco-editor', '@monaco-editor/loader']
         }
       }
-    },
-    chunkSizeWarningLimit: 1000
+    }
   },
-  optimizeDeps: {
-    include: [
-      'vue',
-      'vue-router',
-      'pinia',
-      'element-plus',
-      'axios',
-      'dayjs'
-    ]
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/styles/variables.scss" as *;`
+      }
+    }
   }
 })
