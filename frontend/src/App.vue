@@ -5,26 +5,46 @@
 </template>
 
 <script setup lang="ts">
-// 这里可以添加全局逻辑
+import { provide } from 'vue'
+import { useDark, useToggle } from '@vueuse/core'
+
+// 应用初始化逻辑
+const { isDark } = useDark()
+const toggleDark = useToggle(isDark)
+
+// 提供全局主题切换
+provide('toggleDark', toggleDark)
+provide('isDark', isDark)
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
   height: 100vh;
-  width: 100vw;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
   overflow: hidden;
+}
+
+// 全局滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--el-bg-color-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--el-border-color-darker);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--el-border-color-dark);
+}
+
+// 暗色主题适配
+.dark {
+  color-scheme: dark;
 }
 </style>
