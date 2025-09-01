@@ -48,13 +48,20 @@ export default defineConfig({
           vendor: ['vue', 'vue-router', 'pinia'],
           element: ['element-plus'],
           editor: ['monaco-editor', '@monaco-editor/loader'],
-          charts: ['echarts', 'vue-echarts']
+          utils: ['axios', 'dayjs', 'js-cookie']
         }
       }
     },
     chunkSizeWarningLimit: 1000
   },
-  define: {
-    __VUE_PROD_DEVTOOLS__: false
+  optimizeDeps: {
+    include: [
+      'vue',
+      'vue-router',
+      'pinia',
+      'element-plus',
+      'axios',
+      'dayjs'
+    ]
   }
 })
